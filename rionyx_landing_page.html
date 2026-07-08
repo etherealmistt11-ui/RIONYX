@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RIONYX — Where Everyday Meets Extraordinary</title>
+    <!-- Tailwind CSS for rapid layout styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        ryx: {
+                            deep: '#0F1A30',      // Deep Royal Sapphire Navy
+                            cobalt: '#1E40AF',    // Premium Cobalt Blue
+                            electric: '#2563EB',  // Vibrant Electric Blue
+                            sky: '#60A5FA',       // Serene Sky Blue
+                            ice: '#F0F5FF',       // Ice White / Softest Blue
+                            pure: '#FFFFFF',      // Absolute White
+                            slate: '#475569',     // Refined Slate for readable body text
+                            gold: '#C5A880'       // Delicate Gold luxury accent
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'Georgia', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'luxury': '0 20px 40px -15px rgba(15, 26, 48, 0.08)',
+                        'luxury-hover': '0 30px 60px -12px rgba(30, 64, 175, 0.12)',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts for Editorial Elegance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .premium-blur {
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+    </style>
+</head>
+<body class="bg-ryx-pure text-ryx-deep font-sans min-h-screen flex flex-col antialiased">
+
+    <header class="sticky top-0 z-50 bg-ryx-pure/85 premium-blur border-b border-ryx-ice transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-24 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center space-x-1 group">
+                <span class="font-serif text-3xl font-black tracking-[0.25em] text-ryx-deep group-hover:text-ryx-cobalt transition-colors duration-500">RIONYX</span>
+            </a>
+
+            <!-- Navigation Links -->
+            <nav class="hidden md:flex space-x-10 text-xs font-semibold tracking-widest uppercase">
+                <a href="#home" class="text-ryx-deep hover:text-ryx-cobalt transition duration-300 relative after:content-[''] after:absolute after:bottom-[-6px] after:left-0 after:w-0 after:h-[2px] after:bg-ryx-cobalt hover:after:w-full after:transition-all after:duration-300">Home</a>
+                <a href="#collection" class="text-ryx-deep hover:text-ryx-cobalt transition duration-300 relative after:content-[''] after:absolute after:bottom-[-6px] after:left-0 after:w-0 after:h-[2px] after:bg-ryx-cobalt hover:after:w-full after:transition-all after:duration-300">Our Dresses</a>
+                <a href="#size-advisor" class="text-ryx-deep hover:text-ryx-cobalt transition duration-300 relative after:content-[''] after:absolute after:bottom-[-6px] after:left-0 after:w-0 after:h-[2px] after:bg-ryx-cobalt hover:after:w-full after:transition-all after:duration-300">Size Finder</a>
+                <a href="#philosophy" class="text-ryx-deep hover:text-ryx-cobalt transition duration-300 relative after:content-[''] after:absolute after:bottom-[-6px] after:left-0 after:w-0 after:h-[2px] after:bg-ryx-cobalt hover:after:w-full after:transition-all after:duration-300">Heritage</a>
+                <a href="#contact" class="text-ryx-deep hover:text-ryx-cobalt transition duration-300 relative after:content-[''] after:absolute after:bottom-[-6px] after:left-0 after:w-0 after:h-[2px] after:bg-ryx-cobalt hover:after:w-full after:transition-all after:duration-300">Contact HQ</a>
+            </nav>
+
+            <!-- CTA Button -->
+            <div class="hidden sm:block">
+                <a href="#collection" class="inline-block bg-ryx-deep hover:bg-ryx-cobalt text-ryx-pure text-[11px] font-bold tracking-[0.2em] uppercase px-8 py-3.5 rounded-none border border-ryx-deep hover:border-ryx-cobalt transition-all duration-300 hover:shadow-lg">
+                    Discover Collection
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button onclick="toggleMobileMenu()" class="md:hidden text-ryx-deep focus:outline-none" aria-label="Toggle Menu">
+                <svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Navigation -->
+        <div id="mobile-menu" class="hidden md:hidden bg-ryx-pure border-t border-ryx-ice py-6 px-6 space-y-4 shadow-xl">
+            <a href="#home" onclick="toggleMobileMenu()" class="block text-ryx-deep hover:text-ryx-cobalt font-medium tracking-wide">Home</a>
+            <a href="#collection" onclick="toggleMobileMenu()" class="block text-ryx-deep hover:text-ryx-cobalt font-medium tracking-wide">Our Dresses</a>
+            <a href="#size-advisor" onclick="toggleMobileMenu()" class="block text-ryx-deep hover:text-ryx-cobalt font-medium tracking-wide">Size Finder</a>
+            <a href="#philosophy" onclick="toggleMobileMenu()" class="block text-ryx-deep hover:text-ryx-cobalt font-medium tracking-wide">Heritage</a>
+            <a href="#contact" onclick="toggleMobileMenu()" class="block text-ryx-deep hover:text-ryx-cobalt font-medium tracking-wide">Contact HQ</a>
+            <a href="#collection" onclick="toggleMobileMenu()" class="block text-center bg-ryx-cobalt text-ryx-pure text-xs font-bold tracking-widest uppercase py-4 rounded-none">View Catalog</a>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        <section id="home" class="relative overflow-hidden bg-gradient-to-br from-ryx-ice via-ryx-pure to-ryx-ice min-h-[85vh] flex items-center justify-center py-24 px-4">
+            <!-- Luxury Abstract Background Blobs -->
+            <div class="absolute inset-0 opacity-40 pointer-events-none">
+                <div class="absolute -top-12 -left-12 w-[35rem] h-[35rem] bg-ryx-sky rounded-full blur-[140px] mix-blend-multiply opacity-25"></div>
+                <div class="absolute bottom-10 right-10 w-[40rem] h-[40rem] bg-ryx-cobalt rounded-full blur-[160px] mix-blend-multiply opacity-15"></div>
+                <!-- Abstract architectural line patterns -->
+                <svg class="absolute inset-0 w-full h-full opacity-10" fill="none" stroke="currentColor" viewBox="0 0 100 100" preserveAspectRatio="none">
+                    <line x1="0" y1="20" x2="100" y2="80" stroke="#1E40AF" stroke-width="0.25"/>
+                    <line x1="10" y1="0" x2="90" y2="100" stroke="#1E40AF" stroke-width="0.25"/>
+                </svg>
+            </div>
+            
+            <div class="relative max-w-6xl mx-auto text-center space-y-8 z-10">
+                <span class="inline-flex items-center space-x-2 tracking-[0.3em] uppercase text-xs text-ryx-cobalt font-semibold">
+                    <span class="w-8 h-[1px] bg-ryx-cobalt"></span>
+                    <span>The RIONYX Summer / Autumn Atelier</span>
+                    <span class="w-8 h-[1px] bg-ryx-cobalt"></span>
+                </span>
+                
+                <h1 class="font-serif text-5xl sm:text-7xl md:text-8xl font-normal tracking-tight leading-[1.1] max-w-5xl mx-auto">
+                    Where everyday meets <br>
+                    <span class="font-serif italic font-bold text-transparent bg-clip-text bg-gradient-to-r from-ryx-deep via-ryx-cobalt to-ryx-sky">extraordinary</span>.
+                </h1>
+                
+                <p class="text-ryx-slate text-base sm:text-lg md:text-xl max-w-3xl mx-auto font-light leading-relaxed">
+                    Unveil a world of structured sophistication and lightweight luxury. Impeccably tailored dresses designed to frame the modern woman's extraordinary grace.
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-5 justify-center pt-8">
+                    <a href="#collection" class="bg-ryx-deep text-ryx-pure hover:bg-ryx-cobalt font-bold px-10 py-5 transition-all duration-300 text-xs tracking-[0.2em] uppercase shadow-luxury hover:shadow-luxury-hover border border-ryx-deep hover:border-ryx-cobalt">
+                        Explore Gowns
+                    </a>
+                    <a href="#size-advisor" class="border border-ryx-cobalt/30 text-ryx-cobalt hover:bg-ryx-ice font-bold px-10 py-5 transition-all duration-300 text-xs tracking-[0.2em] uppercase backdrop-blur-sm">
+                        Find Your Fit
+                    </a>
+                </div>
+            </div>
+
+            <!-- Soft artistic baseline -->
+            <div class="absolute bottom-0 inset-x-0 h-24 bg-gradient-to-t from-ryx-pure to-transparent"></div>
+        </section>
+
+        <section class="py-16 bg-ryx-pure border-y border-ryx-ice">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                    <div class="flex items-start space-x-4 p-4">
+                        <div class="bg-ryx-ice p-3 text-ryx-cobalt shrink-0">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-serif text-lg font-bold text-ryx-deep">Artisanal Fine Stitching</h3>
+                            <p class="text-sm text-ryx-slate mt-2 leading-relaxed">Each seam is meticulously executed by seasoned couturiers, ensuring unparalleled durability and inner-lining structural perfection.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start space-x-4 p-4">
+                        <div class="bg-ryx-ice p-3 text-ryx-cobalt shrink-0">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-serif text-lg font-bold text-ryx-deep">Mulberry Silk Blends</h3>
+                            <p class="text-sm text-ryx-slate mt-2 leading-relaxed">We source purely ethical, organic silks and high-grade fibers that adapt flawlessly to temperature, offering a beautiful, fluid shimmer.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start space-x-4 p-4">
+                        <div class="bg-ryx-ice p-3 text-ryx-cobalt shrink-0">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-serif text-lg font-bold text-ryx-deep">Tailored Luxury Fitting</h3>
+                            <p class="text-sm text-ryx-slate mt-2 leading-relaxed">Included on all signature selections. Our in-house designers refine our premium silhouettes to contour your unique measurements perfectly.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="collection" class="py-24 bg-gradient-to-b from-ryx-pure to-ryx-ice/60">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center space-y-4 mb-16">
+                    <span class="text-ryx-cobalt text-xs font-bold tracking-[0.3em] uppercase">The RIONYX Vault</span>
+                    <h2 class="font-serif text-3xl sm:text-5xl font-normal text-ryx-deep">Highly Desirable Masterpieces</h2>
+                    <div class="w-24 h-[2px] bg-ryx-cobalt mx-auto mt-4"></div>
+                    <p class="text-ryx-slate max-w-xl mx-auto text-sm sm:text-base pt-2">
+                        Explore our signature dresses. Every single creation is a manifestation of luxury, detailed design, and exquisite fabric selection.
+                    </p>
+                </div>
+
+                <!-- Product Filters -->
+                <div class="flex justify-center flex-wrap gap-3 mb-12">
+                    <button onclick="filterCollection('all')" id="filter-all" class="filter-btn px-6 py-2.5 text-xs font-bold tracking-widest uppercase transition-all duration-300 bg-ryx-deep text-ryx-pure">All Collections</button>
+                    <button onclick="filterCollection('evening')" id="filter-evening" class="filter-btn px-6 py-2.5 text-xs font-bold tracking-widest uppercase transition-all duration-300 bg-ryx-pure text-ryx-deep border border-ryx-ice hover:border-ryx-cobalt">Evening Wear</button>
+                    <button onclick="filterCollection('midi')" id="filter-midi" class="filter-btn px-6 py-2.5 text-xs font-bold tracking-widest uppercase transition-all duration-300 bg-ryx-pure text-ryx-deep border border-ryx-ice hover:border-ryx-cobalt">Midi & Cocktail</button>
+                    <button onclick="filterCollection('limited')" id="filter-limited" class="filter-btn px-6 py-2.5 text-xs font-bold tracking-widest uppercase transition-all duration-300 bg-ryx-pure text-ryx-deep border border-ryx-ice hover:border-ryx-cobalt">Limited Editions</button>
+                </div>
+
+                <!-- Product Grid containing complete detailed designs -->
+                <div id="product-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    
+                    <!-- Dress 1: Sapphire Gown -->
+                    <div class="product-card group bg-ryx-pure border border-ryx-ice overflow-hidden transition-all duration-500 hover:shadow-luxury-hover flex flex-col" data-category="evening">
+                        <div class="relative bg-gradient-to-b from-ryx-ice to-ryx-pure/20 p-8 flex justify-center items-center h-[350px] overflow-hidden">
+                            <!-- SVG Dress Representation (Sapphire Gown) -->
+                            <svg class="w-48 h-full text-ryx-deep group-hover:scale-110 transition-transform duration-700" viewBox="0 0 200 300" fill="none" stroke="currentColor">
+                                <defs>
+                                    <linearGradient id="sapphireGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#0F1A30" />
+                                        <stop offset="50%" stop-color="#1E40AF" />
+                                        <stop offset="100%" stop-color="#2563EB" />
+                                    </linearGradient>
+                                </defs>
+                                <path d="M100,20 C105,15 110,10 105,-2 C102,-5 98,-5 95,-2 C90,10 95,15 100,20 Z" fill="#0F1A30"/>
+                                <path d="M85,30 C90,30 95,25 100,25 C105,25 110,30 115,30 C122,45 125,55 128,70 L132,105 L68,105 L72,70 C75,55 78,45 85,30 Z" fill="url(#sapphireGrad)"/>
+                                <path d="M68,105 L132,105 L150,210 L165,285 C135,290 115,280 100,285 C85,280 65,290 35,285 L50,210 L68,105 Z" fill="url(#sapphireGrad)" opacity="0.95"/>
+                                <path d="M100,105 L100,285 Z" stroke="#F0F5FF" stroke-width="0.75" stroke-dasharray="2,2"/>
+                                <circle cx="100" cy="50" r="3" fill="#FFFFFF"/>
+                                <circle cx="100" cy="65" r="3" fill="#FFFFFF"/>
+                                <circle cx="100" cy="80" r="3" fill="#FFFFFF"/>
+                            </svg>
+                            <span class="absolute top-4 left-4 bg-ryx-deep text-ryx-pure text-[9px] font-bold tracking-widest uppercase px-3 py-1.5">Evening Gown</span>
+                            <span class="absolute top-4 right-4 bg-ryx-gold text-ryx-pure text-[9px] font-bold tracking-widest uppercase px-3 py-1.5">Atelier Best</span>
+                        </div>
+                        <div class="p-6 flex-grow flex flex-col justify-between border-t border-ryx-ice">
+                            <div class="space-y-2">
+                                <h3 class="font-serif text-xl font-bold text-ryx-deep">The Sapphire Serenade</h3>
+                                <p class="text-xs text-ryx-slate font-medium uppercase tracking-wider">100% Mulberry Silk Blend</p>
+                                <p class="text-xs text-ryx-slate/80 leading-relaxed">Deep indigo floor-sweeping gown draped dynamically along the waistline, forming structured pleats. Breathable inner mesh lining for ultimate convenience.</p>
+                            </div>
+                            <div class="flex items-center justify-between pt-6 mt-4 border-t border-ryx-ice">
+                                <span class="font-serif text-lg font-bold text-ryx-cobalt">$380.00</span>
+                                <button onclick="openDressModal('The Sapphire Serenade', '$380.00', 'Mulberry Silk, Premium Mesh, Suede trims', 'Professional Dry Clean Only', 'In Stock (XS, S, M, L, custom sizes)', 'Includes complementary in-house fitting and gold-tier preservation box.')" class="text-[10px] font-bold tracking-widest uppercase text-ryx-deep hover:text-ryx-cobalt transition duration-300 border-b-2 border-ryx-cobalt/20 hover:border-ryx-cobalt pb-1">View Specifications &rarr;</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dress 2: Powder Blue Petal Dress -->
+                    <div class="product-card group bg-ryx-pure border border-ryx-ice overflow-hidden transition-all duration-500 hover:shadow-luxury-hover flex flex-col" data-category="midi">
+                        <div class="relative bg-gradient-to-b from-ryx-ice to-ryx-pure/20 p-8 flex justify-center items-center h-[350px] overflow-hidden">
+                            <!-- SVG Dress Representation (Midi) -->
+                            <svg class="w-48 h-full text-ryx-deep group-hover:scale-110 transition-transform duration-700" viewBox="0 0 200 300" fill="none" stroke="currentColor">
+                                <defs>
+                                    <linearGradient id="skyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#60A5FA" />
+                                        <stop offset="100%" stop-color="#1E40AF" />
+                                    </linearGradient>
+                                </defs>
+                                <path d="M100,30 L85,42 L78,65 L85,85 L115,85 L122,65 L115,42 Z" fill="url(#skyGrad)"/>
+                                <path d="M85,85 L115,85 L130,140 L140,210 L145,265 C120,270 110,260 100,265 C90,260 80,270 55,265 L60,210 L70,140 Z" fill="url(#skyGrad)" opacity="0.9"/>
+                                <path d="M100,85 L100,265 Z" stroke="#FFFFFF" stroke-width="1.25" opacity="0.5"/>
+                                <path d="M82,90 C92,100 108,100 118,90" fill="none" stroke="#F0F5FF" stroke-width="1.5"/>
+                                <path d="M80,115 C90,125 110,125 120,115" fill="none" stroke="#F0F5FF" stroke-width="1.5"/>
+                            </svg>
+                            <span class="absolute top-4 left-4 bg-ryx-deep text-ryx-pure text-[9px] font-bold tracking-widest uppercase px-3 py-1.5">Midi / Cocktail</span>
+                        </div>
+                        <div class="p-6 flex-grow flex flex-col justify-between border-t border-ryx-ice">
+                            <div class="space-y-2">
+                                <h3 class="font-serif text-xl font-bold text-ryx-deep">Powder-Blue Petal Dress</h3>
+                                <p class="text-xs text-ryx-slate font-medium uppercase tracking-wider">Premium Soft Tulle & Lace</p>
+                                <p class="text-xs text-ryx-slate/80 leading-relaxed">Delicately designed tulle midi dress presenting intricate hand-woven floral embroidery along the corsage. Elegant high waistband that slims gracefully.</p>
+                            </div>
+                            <div class="flex items-center justify-between pt-6 mt-4 border-t border-ryx-ice">
+                                <span class="font-serif text-lg font-bold text-ryx-cobalt">$295.00</span>
+                                <button onclick="openDressModal('Powder-Blue Petal Dress', '$295.00', 'Soft Tulle, Organic Cotton blend underlay, Silk threads', 'Gentle hand wash or Dry Clean', 'In Stock (S, M, L)', 'Lightweight comfort with premium sheer sleeves.')" class="text-[10px] font-bold tracking-widest uppercase text-ryx-deep hover:text-ryx-cobalt transition duration-300 border-b-2 border-ryx-cobalt/20 hover:border-ryx-cobalt pb-1">View Specifications &rarr;</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dress 3: Ivory Crepe Gown -->
+                    <div class="product-card group bg-ryx-pure border border-ryx-ice overflow-hidden transition-all duration-500 hover:shadow-luxury-hover flex flex-col" data-category="evening">
+                        <div class="relative bg-gradient-to-b from-ryx-ice to-ryx-pure/20 p-8 flex justify-center items-center h-[350px] overflow-hidden">
+                            <!-- SVG Dress Representation (Ivory Dress) -->
+                            <svg class="w-48 h-full text-ryx-deep group-hover:scale-110 transition-transform duration-700" viewBox="0 0 200 300" fill="none" stroke="currentColor">
+                                <defs>
+                                    <linearGradient id="ivoryGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#FFFFFF" />
+                                        <stop offset="100%" stop-color="#E2EAFC" />
+                                    </linearGradient>
+                                </defs>
+                                <path d="M100,25 C103,20 106,12 103,2 C100,-2 100,-2 97,2 C94,12 97,20 100,25 Z" fill="#E2EAFC"/>
+                                <path d="M88,28 C94,28 97,25 100,25 C103,25 106,28 112,28 C120,40 128,55 130,75 L70,75 C72,55 80,40 88,28 Z" fill="url(#ivoryGrad)" stroke="#1E40AF" stroke-width="0.5"/>
+                                <path d="M70,75 L130,75 L150,220 L160,285 C125,285 110,270 100,275 C90,270 75,285 40,285 L50,220 Z" fill="url(#ivoryGrad)" opacity="0.95" stroke="#1E40AF" stroke-width="0.5"/>
+                                <path d="M72,110 C82,120 118,120 128,110" fill="none" stroke="#60A5FA" stroke-width="1"/>
+                                <path d="M75,145 C85,155 115,155 125,145" fill="none" stroke="#60A5FA" stroke-width="1"/>
+                            </svg>
+                            <span class="absolute top-4 left-4 bg-ryx-deep text-ryx-pure text-[9px] font-bold tracking-widest uppercase px-3 py-1.5">Evening Gown</span>
+                        </div>
+                        <div class="p-6 flex-grow flex flex-col justify-between border-t border-ryx-ice">
+                            <div class="space-y-2">
+                                <h3 class="font-serif text-xl font-bold text-ryx-deep">Ivory Crepe Cascade</h3>
+                                <p class="text-xs text-ryx-slate font-medium uppercase tracking-wider">Pure Crepe Silk & Chiffon</p>
+                                <p class="text-xs text-ryx-slate/80 leading-relaxed">An architectural white columns masterpiece features deep slate details and structured shoulder curves. Includes an open drape cowl back for high-fashion flair.</p>
+                            </div>
+                            <div class="flex items-center justify-between pt-6 mt-4 border-t border-ryx-ice">
+                                <span class="font-serif text-lg font-bold text-ryx-cobalt">$410.00</span>
+                                <button onclick="openDressModal('Ivory Crepe Cascade', '$410.00', 'Pure French Crepe Silk, Chiffon overlay', 'Dry Clean Only', 'In Stock (XS, S, M)', 'Features structured shoulder pads and stunning cowl back silhouette.')" class="text-[10px] font-bold tracking-widest uppercase text-ryx-deep hover:text-ryx-cobalt transition duration-300 border-b-2 border-ryx-cobalt/20 hover:border-ryx-cobalt pb-1">View Specifications &rarr;</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dress 4: Cerulean Breeze Slip -->
+                    <div class="product-card group bg-ryx-pure border border-ryx-ice overflow-hidden transition-all duration-500 hover:shadow-luxury-hover flex flex-col" data-category="limited">
+                        <div class="relative bg-gradient-to-b from-ryx-ice to-ryx-pure/20 p-8 flex justify-center items-center h-[350px] overflow-hidden">
+                            <!-- SVG Dress Representation (Cerulean Slip) -->
+                            <svg class="w-48 h-full text-ryx-deep group-hover:scale-110 transition-transform duration-700" viewBox="0 0 200 300" fill="none" stroke="currentColor">
+                                <defs>
+                                    <linearGradient id="ceruleanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#1E40AF" />
+                                        <stop offset="100%" stop-color="#60A5FA" />
+                                    </linearGradient>
+                                </defs>
+                                <path d="M85,35 L115,35 L125,95 L135,160 L145,260 C120,265 110,255 100,260 C90,255 80,265 55,260 L65,160 L75,95 Z" fill="url(#ceruleanGrad)"/>
+                                <path d="M85,35 L80,10" fill="none" stroke="#1E40AF" stroke-width="1.5"/>
+                                <path d="M115,35 L120,10" fill="none" stroke="#1E40AF" stroke-width="1.5"/>
+                                <path d="M85,55 C95,65 105,65 115,55" fill="none" stroke="#FFFFFF" stroke-width="1"/>
+                            </svg>
+                            <span class="absolute top-4 left-4 bg-ryx-deep text-ryx-pure text-[9px] font-bold tracking-widest uppercase px-3 py-1.5">Limited Edition</span>
+                            <span class="absolute top-4 right-4 bg-ryx-cobalt text-ryx-pure text-[9px] font-bold tracking-widest uppercase px-3 py-1.5">Exclusive</span>
+                        </div>
+                        <div class="p-6 flex-grow flex flex-col justify-between border-t border-ryx-ice">
+                            <div class="space-y-2">
+                                <h3 class="font-serif text-xl font-bold text-ryx-deep">Cerulean Breeze Slip</h3>
+                                <p class="text-xs text-ryx-slate font-medium uppercase tracking-wider">Lustrous Satin Silk</p>
+                                <p class="text-xs text-ryx-slate/80 leading-relaxed">Extremely refined, featherlight sky blue satin slip featuring fine Chantilly lace detailing. Perfect for sunset receptions and VIP gatherings.</p>
+                            </div>
+                            <div class="flex items-center justify-between pt-6 mt-4 border-t border-ryx-ice">
+                                <span class="font-serif text-lg font-bold text-ryx-cobalt">$340.00</span>
+                                <button onclick="openDressModal('Cerulean Breeze Slip', '$340.00', 'Lustrous Satin Silk, Chantilly Lace trim', 'Hand wash or Dry Clean', 'Limited Availability (XS, S, M, L)', 'Features adjustable spaghetti straps and double silk lining.')" class="text-[10px] font-bold tracking-widest uppercase text-ryx-deep hover:text-ryx-cobalt transition duration-300 border-b-2 border-ryx-cobalt/20 hover:border-ryx-cobalt pb-1">View Specifications &rarr;</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="size-advisor" class="py-24 bg-ryx-pure border-t border-ryx-ice relative overflow-hidden">
+            <div class="absolute inset-0 opacity-10 pointer-events-none">
+                <div class="absolute top-1/2 left-1/3 w-96 h-96 bg-ryx-cobalt rounded-full blur-[180px]"></div>
+            </div>
+            
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="bg-gradient-to-br from-ryx-deep to-ryx-cobalt rounded-none p-10 md:p-16 text-ryx-pure shadow-luxury">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                        <div class="lg:col-span-6 space-y-6">
+                            <span class="text-ryx-sky text-xs font-bold tracking-[0.3em] uppercase">RIONYX Tailoring Tech</span>
+                            <h2 class="font-serif text-3xl sm:text-5xl font-normal leading-tight">Find Your Immaculate Silhouette</h2>
+                            <p class="text-ryx-ice/80 text-sm leading-relaxed font-light">
+                                Avoid guessing sizes. Input your body measurements into our advanced mathematical fitting simulator to instantly view your recommended custom RIONYX size class.
+                            </p>
+                            <div class="bg-ryx-pure/10 p-4 border border-ryx-pure/20 flex items-center space-x-4">
+                                <div class="bg-ryx-pure/25 p-2 text-ryx-sky">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+                                    </svg>
+                                </div>
+                                <p class="text-xs text-ryx-ice">Calculated based on standard elite French and New York luxury sizing modules.</p>
+                            </div>
+                        </div>
+
+                        <!-- Interactive Estimator Card -->
+                        <div class="lg:col-span-6 bg-ryx-pure text-ryx-deep p-8 shadow-2xl relative">
+                            <h3 class="font-serif text-xl font-bold border-b border-ryx-ice pb-4 mb-6">Sizing Simulator</h3>
+                            
+                            <form id="size-form" onsubmit="calculateSize(event)" class="space-y-5">
+                                <div>
+                                    <label class="block text-[10px] font-bold tracking-widest uppercase text-ryx-slate mb-2">Bust Circumference (inches)</label>
+                                    <input type="number" id="bust-input" required min="28" max="48" step="0.5" placeholder="e.g. 34.5" class="w-full px-4 py-3 border border-ryx-ice focus:border-ryx-cobalt focus:outline-none text-sm transition-colors">
+                                </div>
+                                <div>
+                                    <label class="block text-[10px] font-bold tracking-widest uppercase text-ryx-slate mb-2">Waist Circumference (inches)</label>
+                                    <input type="number" id="waist-input" required min="22" max="42" step="0.5" placeholder="e.g. 26.5" class="w-full px-4 py-3 border border-ryx-ice focus:border-ryx-cobalt focus:outline-none text-sm transition-colors">
+                                </div>
+                                <button type="submit" class="w-full bg-ryx-cobalt hover:bg-ryx-deep text-ryx-pure font-bold py-4 text-xs tracking-widest uppercase transition-colors duration-300">
+                                    Analyze Silhouette
+                                </button>
+                            </form>
+
+                            <!-- Size Output Window (hidden originally) -->
+                            <div id="size-result" class="hidden mt-6 p-4 bg-ryx-ice border border-ryx-sky/30 text-center animate-fade-in">
+                                <p class="text-xs text-ryx-slate uppercase tracking-widest">Recommended RIONYX Cut</p>
+                                <p id="calculated-size" class="font-serif text-3xl font-black text-ryx-cobalt mt-1">CLASSIC S</p>
+                                <p id="size-details" class="text-[11px] text-ryx-slate mt-2 italic">A superb contour fit with minor waist draping adjustability.</p>
+                                <button onclick="resetSizeForm()" class="text-[10px] uppercase tracking-widest font-bold text-ryx-deep hover:text-ryx-cobalt mt-4 block mx-auto underline">Recalculate</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="philosophy" class="py-24 bg-ryx-ice/40 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+                    
+                    <!-- Aesthetic Collage Grid -->
+                    <div class="lg:col-span-5 relative space-y-6">
+                        <div class="bg-ryx-deep p-12 text-ryx-pure relative overflow-hidden shadow-luxury">
+                            <div class="absolute -right-16 -top-16 w-64 h-64 bg-ryx-cobalt rounded-full opacity-30 blur-2xl"></div>
+                            <h3 class="font-serif text-3xl font-light mb-4 leading-snug">
+                                Designed for absolute elegance. <br>
+                                <span class="italic font-bold text-ryx-sky">Zero compromise.</span>
+                            </h3>
+                            <p class="text-ryx-ice/70 text-sm leading-relaxed mb-6">
+                                We believe in slow, purposeful design modules. Every RIONYX gown is created as a piece of functional luxury, ensuring the wearers instantly feel magnificent and secure.
+                            </p>
+                            <div class="flex items-center space-x-2 text-ryx-gold">
+                                <span class="text-xs font-bold uppercase tracking-widest">Est. 2019 Haute Couture</span>
+                            </div>
+                        </div>
+                        
+                        <div class="border border-ryx-cobalt/20 p-6 bg-ryx-pure flex items-center justify-between">
+                            <div>
+                                <h4 class="font-bold text-sm text-ryx-deep">Complimentary Atelier Courier</h4>
+                                <p class="text-xs text-ryx-slate mt-1">Dispatched in beautiful temperature-sealed boxes.</p>
+                            </div>
+                            <span class="text-ryx-cobalt font-serif text-2xl font-bold">&rarr;</span>
+                        </div>
+                    </div>
+
+                    <!-- Philosophy Text details -->
+                    <div class="lg:col-span-7 space-y-8">
+                        <span class="text-ryx-cobalt text-xs font-bold tracking-[0.3em] uppercase">The Atelier Blueprint</span>
+                        <h2 class="font-serif text-3xl sm:text-5xl font-normal text-ryx-deep leading-tight">Crafting exceptional confidence for life's prime events.</h2>
+                        <p class="text-ryx-slate leading-relaxed text-sm sm:text-base">
+                            RIONYX began with a singular goal: to challenge the limits of rapid luxury. We integrate classical tailoring processes with dynamic fabrics that flow, morph, and accentuate organic movement. Every dress released under our label represents dozens of hours of drafting, testing, and continuous optimization.
+                        </p>
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4 border-t border-ryx-ice">
+                            <div class="space-y-2">
+                                <h4 class="font-bold text-sm text-ryx-deep">Precision Silhouette Contour</h4>
+                                <p class="text-xs text-ryx-slate leading-relaxed">Our advanced draping ensures the waistline retains its structured shape regardless of movement, emphasizing natural poise and effortless grace.</p>
+                            </div>
+                            <div class="space-y-2">
+                                <h4 class="font-bold text-sm text-ryx-deep">Premium Fabric Quality Guard</h4>
+                                <p class="text-xs text-ryx-slate leading-relaxed">All fibers are chemically tested for color resilience and comfort in high-heat environments prior to cutting, offering zero skin irritation.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 bg-gradient-to-r from-ryx-deep to-ryx-cobalt text-ryx-pure relative overflow-hidden">
+            <div class="absolute inset-0 opacity-10 pointer-events-none">
+                <svg class="w-full h-full" fill="currentColor" viewBox="0 0 100 100" preserveAspectRatio="none">
+                    <circle cx="50" cy="50" r="40" stroke="white" stroke-width="0.5" fill="none"/>
+                    <circle cx="50" cy="50" r="30" stroke="white" stroke-width="0.5" fill="none"/>
+                </svg>
+            </div>
+            <div class="max-w-4xl mx-auto px-4 text-center space-y-6 relative z-10">
+                <span class="text-ryx-sky text-xs font-bold tracking-widest uppercase">VIP CLUB RIONYX</span>
+                <h3 class="font-serif text-2xl sm:text-4xl font-normal">Step Into the Extraordinary Inner Circle</h3>
+                <p class="text-ryx-ice/70 text-xs sm:text-sm tracking-wide max-w-xl mx-auto font-light leading-relaxed">
+                    Receive direct access to limited collection presales, invitations to our private metropolitan showings, and curated style reports.
+                </p>
+                <form id="newsletter-form" onsubmit="handleVIPSubscribe(event)" class="max-w-md mx-auto flex flex-col sm:flex-row gap-3 pt-4">
+                    <input type="email" placeholder="concierge@luxury.com" required class="flex-grow px-6 py-4 bg-ryx-pure/10 border border-ryx-pure/20 text-ryx-pure placeholder-ryx-ice/45 focus:outline-none focus:border-ryx-sky text-sm">
+                    <button type="submit" class="bg-ryx-pure text-ryx-deep font-bold px-8 py-4 hover:bg-ryx-ice transition duration-300 text-xs tracking-widest uppercase shrink-0">
+                        Subscribe
+                    </button>
+                </form>
+                <div id="newsletter-success" class="hidden text-ryx-sky text-xs font-bold tracking-wider pt-2">
+                    ✨ Welcome! Your luxury invite has been dispatched to your email inbox.
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact" class="bg-ryx-deep text-ryx-pure border-t border-ryx-cobalt/20 pt-20 pb-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-12 pb-16">
+                
+                <!-- Brand statement and global coordinates -->
+                <div class="md:col-span-4 space-y-6">
+                    <span class="font-serif text-3xl font-black tracking-[0.2em] text-ryx-pure">RIONYX</span>
+                    <p class="text-ryx-ice/60 text-xs leading-relaxed max-w-sm">
+                        Engineering beautiful, timeless silhouettes that blend coastal modern aesthetics with structural masterwork. Made for the extraordinary everyday moments.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-ryx-pure/5 hover:bg-ryx-cobalt flex items-center justify-center text-ryx-ice hover:text-ryx-pure transition duration-300" aria-label="Instagram Page">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-ryx-pure/5 hover:bg-ryx-cobalt flex items-center justify-center text-ryx-ice hover:text-ryx-pure transition duration-300" aria-label="Pinterest Boards">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- HQ Operating Hours -->
+                <div class="md:col-span-3 space-y-4">
+                    <h4 class="text-xs font-bold tracking-[0.25em] uppercase text-ryx-sky border-b border-ryx-pure/10 pb-2">Salon Hours</h4>
+                    <ul class="text-xs text-ryx-ice/60 space-y-2.5">
+                        <li class="flex justify-between"><span>Monday - Friday</span> <span class="text-ryx-pure">10:00 AM - 7:00 PM</span></li>
+                        <li class="flex justify-between"><span>Saturday Salon</span> <span class="text-ryx-pure">11:00 AM - 8:00 PM</span></li>
+                        <li class="flex justify-between"><span>Sunday Fittings</span> <span class="text-ryx-pure">By Appointment Only</span></li>
+                        <li class="pt-2 text-ryx-gold font-serif italic">Pre-booked studio appointments take priority.</li>
+                    </ul>
+                </div>
+
+                <!-- Custom Client Services -->
+                <div class="md:col-span-2 space-y-4">
+                    <h4 class="text-xs font-bold tracking-[0.25em] uppercase text-ryx-sky border-b border-ryx-pure/10 pb-2">HQ Services</h4>
+                    <ul class="text-xs text-ryx-ice/60 space-y-2.5">
+                        <li><a href="#size-advisor" class="hover:text-ryx-pure transition-colors">Bespoke Adjustments</a></li>
+                        <li><a href="#" class="hover:text-ryx-pure transition-colors">Bridal Consultation</a></li>
+                        <li><a href="#" class="hover:text-ryx-pure transition-colors">Personal Dress Shopper</a></li>
+                        <li><a href="#" class="hover:text-ryx-pure transition-colors">White Glove Delivery</a></li>
+                    </ul>
+                </div>
+
+                <!-- Highly Detailed Contact Information -->
+                <div class="md:col-span-3 space-y-5">
+                    <h4 class="text-xs font-bold tracking-[0.25em] uppercase text-ryx-sky border-b border-ryx-pure/10 pb-2">HQ Showroom</h4>
+                    
+                    <div class="space-y-4 text-xs text-ryx-ice/70">
+                        <div class="flex items-start space-x-3">
+                            <svg class="w-5 h-5 text-ryx-sky mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            </svg>
+                            <span>Atelier Suite 402, 14 Blue Coast Boulevard, Design District, NY 10004</span>
+                        </div>
+
+                        <div class="flex items-center space-x-3">
+                            <svg class="w-5 h-5 text-ryx-sky shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                            </svg>
+                            <a href="mailto:concierge@rionyx-boutique.com" class="hover:text-ryx-pure transition-colors">concierge@rionyx-boutique.com</a>
+                        </div>
+
+                        <!-- Highlighted Specific Contact Number Request -->
+                        <div class="bg-ryx-pure/5 p-4 border border-ryx-sky/25 flex items-center space-x-4">
+                            <div class="bg-ryx-cobalt p-2 text-ryx-pure shrink-0">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <span class="block text-[9px] text-ryx-sky uppercase tracking-widest font-bold">VIP Booking Line</span>
+                                <a href="tel:9876543210" class="text-base font-bold text-ryx-pure hover:text-ryx-sky transition-colors">9876543210</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Copyright and Bottom metadata -->
+            <div class="pt-8 border-t border-ryx-pure/10 text-center md:flex md:justify-between md:items-center text-[11px] text-ryx-ice/50">
+                <p>&copy; 2026 RIONYX Atelier Haute Couture. All elite rights reserved.</p>
+                <div class="flex justify-center space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-ryx-sky transition-colors">Salon Policy</a>
+                    <a href="#" class="hover:text-ryx-sky transition-colors">VIP Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="spec-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-ryx-deep/70 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-300 px-4">
+        <div class="bg-ryx-pure max-w-lg w-full p-8 relative shadow-2xl border border-ryx-ice transform scale-95 transition-transform duration-300" id="spec-modal-container">
+            <button onclick="closeDressModal()" class="absolute top-6 right-6 text-ryx-slate hover:text-ryx-deep transition-colors">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
+            <span class="text-ryx-cobalt text-[10px] font-bold tracking-widest uppercase">RIONYX Product Spec Sheet</span>
+            
+            <h3 class="font-serif text-3xl font-bold text-ryx-deep mt-2 mb-1" id="m-dress-title">The Sapphire Serenade</h3>
+            <span class="text-lg font-serif font-black text-ryx-cobalt block mb-6" id="m-dress-price">$380.00</span>
+
+            <div class="space-y-5 text-sm border-t border-ryx-ice pt-5">
+                <div class="grid grid-cols-3 gap-2">
+                    <span class="font-semibold text-[10px] uppercase tracking-wider text-ryx-slate">Materials:</span>
+                    <span class="col-span-2 text-ryx-deep" id="m-dress-material">100% Mulberry Silk Blend</span>
+                </div>
+                <div class="grid grid-cols-3 gap-2">
+                    <span class="font-semibold text-[10px] uppercase tracking-wider text-ryx-slate">Maintenance:</span>
+                    <span class="col-span-2 text-ryx-deep" id="m-dress-care">Professional Dry Clean Only</span>
+                </div>
+                <div class="grid grid-cols-3 gap-2">
+                    <span class="font-semibold text-[10px] uppercase tracking-wider text-ryx-slate">Availability:</span>
+                    <span class="col-span-2 text-ryx-deep font-semibold" id="m-dress-stock">In Stock (XS, S, M, L)</span>
+                </div>
+                <div class="grid grid-cols-3 gap-2">
+                    <span class="font-semibold text-[10px] uppercase tracking-wider text-ryx-slate">Package Inclusions:</span>
+                    <span class="col-span-2 text-ryx-slate leading-relaxed" id="m-dress-packaging">Includes complementary fitting.</span>
+                </div>
+            </div>
+
+            <!-- Action buttons inside the specification detailer -->
+            <div class="mt-8 flex gap-3">
+                <button onclick="requestConciergeCallback()" class="flex-1 bg-ryx-deep text-ryx-pure hover:bg-ryx-cobalt font-bold py-4 text-xs tracking-widest uppercase transition-colors">
+                    Request Concierge Checkout
+                </button>
+                <button onclick="closeDressModal()" class="border border-ryx-ice text-ryx-slate hover:bg-ryx-ice font-bold px-6 py-4 text-xs tracking-widest uppercase transition-colors">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="custom-toaster" class="fixed bottom-6 right-6 z-50 bg-ryx-deep text-ryx-pure border border-ryx-sky/35 px-6 py-4 rounded-none shadow-2xl opacity-0 translate-y-4 pointer-events-none transition-all duration-300 flex items-center space-x-3">
+        <div class="bg-ryx-cobalt p-2 text-ryx-sky shrink-0">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+            </svg>
+        </div>
+        <div>
+            <p class="font-bold text-xs uppercase tracking-wider" id="toast-title">Subscription Complete</p>
+            <p class="text-ryx-ice/80 text-[11px] mt-0.5" id="toast-desc">Welcome to RIONYX extraordinary club.</p>
+        </div>
+    </div>
+
+    <script>
+        // Toggle mobile menu navigation panel safely
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-icon');
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                icon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>`;
+            } else {
+                menu.classList.add('hidden');
+                icon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>`;
+            }
+        }
+
+        // Filtering Dress Collections seamlessly
+        function filterCollection(category) {
+            const cards = document.querySelectorAll('.product-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+
+            // Reset active button states
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-ryx-deep', 'text-ryx-pure');
+                btn.classList.add('bg-ryx-pure', 'text-ryx-deep', 'border-ryx-ice');
+            });
+
+            // Set active category button state
+            const activeBtn = document.getElementById(`filter-${category}`);
+            if (activeBtn) {
+                activeBtn.classList.remove('bg-ryx-pure', 'text-ryx-deep');
+                activeBtn.classList.add('bg-ryx-deep', 'text-ryx-pure');
+            }
+
+            // Loop cards with styling transitions
+            cards.forEach(card => {
+                const cardCategory = card.getAttribute('data-category');
+                if (category === 'all' || cardCategory === category) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Interactive Size Recommendation Calculator Logic
+        function calculateSize(event) {
+            event.preventDefault();
+            const bust = parseFloat(document.getElementById('bust-input').value);
+            const waist = parseFloat(document.getElementById('waist-input').value);
+            const resultDiv = document.getElementById('size-result');
+            const calculatedSizeSpan = document.getElementById('calculated-size');
+            const sizeDetailsSpan = document.getElementById('size-details');
+            const form = document.getElementById('size-form');
+
+            let size = 'CUSTOM ATELIER FIT';
+            let description = 'We highly recommend our VIP custom measure option for absolute contouring.';
+
+            if (bust >= 30 && bust <= 33 && waist >= 22 && waist <= 25) {
+                size = 'RIONYX PETITE (XS)';
+                description = 'Perfectly modeled for narrow frames. Tailoring focuses on shoulder-to-hip alignment.';
+            } else if (bust > 33 && bust <= 35 && waist > 25 && waist <= 27) {
+                size = 'RIONYX CLASSIC (S)';
+                description = 'Our signature standard fit. Offers exceptional structural waist ease.';
+            } else if (bust > 35 && bust <= 38 && waist > 27 && waist <= 30) {
+                size = 'RIONYX COUTURE (M)';
+                description = 'Draped gracefully across the chest and designed for natural hourglass silhouettes.';
+            } else if (bust > 38 && bust <= 41 && waist > 30 && waist <= 33) {
+                size = 'RIONYX GRANDE (L)';
+                description = 'Ample stretch and support built with comfortable, flexible seams.';
+            } else if (bust > 41 && bust <= 44 && waist > 33 && waist <= 36) {
+                size = 'RIONYX PRESTIGE (XL)';
+                description = 'Structured with extra flow lining to ensure stunning silhouette movement.';
+            }
+
+            calculatedSizeSpan.textContent = size;
+            sizeDetailsSpan.textContent = description;
+
+            form.classList.add('hidden');
+            resultDiv.classList.remove('hidden');
+            showToast('Silhouette Analyzed', 'We have simulated your dynamic shape classification.');
+        }
+
+        // Reset Size Finder to original inputs
+        function resetSizeForm() {
+            const form = document.getElementById('size-form');
+            const resultDiv = document.getElementById('size-result');
+            form.reset();
+            resultDiv.classList.add('hidden');
+            form.classList.remove('hidden');
+        }
+
+        // Open detailed specifications modal
+        function openDressModal(title, price, material, care, stock, packaging) {
+            const modal = document.getElementById('spec-modal');
+            const container = document.getElementById('spec-modal-container');
+
+            document.getElementById('m-dress-title').textContent = title;
+            document.getElementById('m-dress-price').textContent = price;
+            document.getElementById('m-dress-material').textContent = material;
+            document.getElementById('m-dress-care').textContent = care;
+            document.getElementById('m-dress-stock').textContent = stock;
+            document.getElementById('m-dress-packaging').textContent = packaging;
+
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            container.classList.remove('scale-95');
+            container.classList.add('scale-100');
+        }
+
+        // Close specification modal cleanly
+        function closeDressModal() {
+            const modal = document.getElementById('spec-modal');
+            const container = document.getElementById('spec-modal-container');
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            container.classList.remove('scale-100');
+            container.classList.add('scale-95');
+        }
+
+        // Handle Request Concierge Callback simulation
+        function requestConciergeCallback() {
+            const dressName = document.getElementById('m-dress-title').textContent;
+            closeDressModal();
+            showToast('Callback Initiated', `Our VIP stylist has scheduled an outfit review for ${dressName}.`);
+        }
+
+        // Handle VIP Club Subscription simulation
+        function handleVIPSubscribe(event) {
+            event.preventDefault();
+            const form = event.target;
+            const successMsg = document.getElementById('newsletter-success');
+            
+            form.classList.add('hidden');
+            successMsg.classList.remove('hidden');
+
+            showToast('Invitation Sent', 'Welcome to the inner circle of RIONYX.');
+
+            setTimeout(() => {
+                form.reset();
+                form.classList.remove('hidden');
+                successMsg.classList.add('hidden');
+            }, 6000);
+        }
+
+        // Standard custom luxury Toaster Notification (Bypassing invasive browser alert boxes)
+        function showToast(title, desc) {
+            const toast = document.getElementById('custom-toaster');
+            document.getElementById('toast-title').textContent = title;
+            document.getElementById('toast-desc').textContent = desc;
+
+            toast.classList.remove('opacity-0', 'translate-y-4', 'pointer-events-none');
+            toast.classList.add('opacity-100', 'translate-y-0');
+
+            setTimeout(() => {
+                toast.classList.remove('opacity-100', 'translate-y-0');
+                toast.classList.add('opacity-0', 'translate-y-4', 'pointer-events-none');
+            }, 4000);
+        }
+    </script>
+</body>
+</html>
